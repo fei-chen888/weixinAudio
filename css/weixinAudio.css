@@ -1,0 +1,195 @@
+*{padding:0;margin:0;}
+body{
+  padding:10px;
+}
+
+.weixinAudio{
+  margin:0 0 10px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.audio_area{
+  width: 100%;
+  padding:15px 10px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  border: 1px solid #ebebeb;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.audio_play_area {
+  margin:0 15px 0 0;
+  border:2px #0cbb08 solid;
+  border-radius: 100%;
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  line-height: 42px;
+  box-sizing: border-box;
+  position:relative;
+  cursor: pointer;
+}
+.audio_play_area .icon_audio_default {
+  display: none;
+  background: transparent url(../images/audio.png) no-repeat 0 0;
+  width: 18px;
+  height: 25px;
+  display: inline-block;
+  -webkit-background-size: 54px 25px;
+  background-size: 54px 25px;
+  background-position: -36px center;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.audio_play_area .icon_audio_playing {
+  display: none;
+  background: transparent url(../images/audio.png) no-repeat 0 0;
+  background-size: 54px 25px;
+  background-position: 0px center;
+  width: 18px;
+  height: 25px;
+  -webkit-animation: audio_playing 1s infinite;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.playing.audio_play_area .icon_audio_default {
+  display: none;
+}
+.playing.audio_play_area .icon_audio_playing {
+  display: inline-block;
+}
+
+.audio_info_area {
+  flex: 1;
+}
+.audio_info_area .audio_title {
+  font-weight: 400;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.audio_info_area .progress_bar {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  margin: 10px 0 0 0;
+  line-height: 2px;
+}
+.audio_info_area .progress_bar:before{
+  display: block;
+  content: "";
+  width: 100%;
+  height: 2px;
+  top:50%;
+  left:0;
+  background: #ebebeb;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  overflow: hidden;
+  position: absolute;
+}
+
+.audio_info_area .progress_bar .audio_progress{
+  position: absolute;
+  left:0;
+  top:50%;
+  display: inline-block;
+  background-color: #0cbb08;
+  height: 2px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.progress_bar .audio_progress_handle{
+  z-index: 2;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(9,187,7,0.15);
+  top:50%;
+  left:0;
+  cursor: pointer;
+  transform:translateX(-50%) translateY(-50%);
+  -webkit-transform:translateX(-50%) translateY(-50%);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.progress_bar .audio_progress_handle:before{
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #09bb07;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform:translateX(-50%) translateY(-50%);
+}
+
+.audio_info_area .audio_desc{
+  font-size:12px;
+  color:#b2b2b2;
+  margin:10px 0 0 0;
+}
+.audio_info_area .audio_desc .audio_length{
+  float:right;
+}
+
+@-webkit-keyframes audio_playing {
+  30% {
+    background-position: 0px center;
+  }
+  31% {
+    background-position: -18px center;
+  }
+  61% {
+    background-position: -18px center;
+  }
+  61.5% {
+    background-position: -36px center;
+  }
+  100% {
+    background-position: -36px center;
+  }
+}
+
+@keyframes audio_playing {
+  30% {
+    background-position: 0px center;
+  }
+  31% {
+    background-position: -18px center;
+  }
+  61% {
+    background-position: -18px center;
+  }
+  61.5% {
+    background-position: -36px center;
+  }
+  100% {
+    background-position: -36px center;
+  }
+}
