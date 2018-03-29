@@ -14,9 +14,13 @@
 <video style="background:#000;width:100%;height:18rem;" controls=""><source src="mp4/mp4.mp4" type="video/mp4"></video>
 </div>
 <script type="text/javascript">
-  var audioObj = $('body').weixinAudio({
+  var audioObj = $('#content').weixinAudio({
     title:'标题1234',
-    replace:'video,audio'
+    replace:'video,audio',
+    audioList:[
+      {title:'音频1',src:'mp4/mp4.mp4'},
+      {title:'音频2',src:'mp4/mp4.mp4'},
+    ]
   });
 </script>
 </body>

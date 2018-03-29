@@ -72,8 +72,9 @@
         _this.touch.startFlag = true;
         _this.touch.startX = e.originalEvent.touches ? e.originalEvent.touches[0].pageX:e.pageX;
         _this.touch.offset.left = _this.$audio_progress_handle.position().left;
+        
       });
-      _this.$audio_progress_handle.on(_this.touch.move,function(e){
+      $(document).on(_this.touch.move,function(e){
         if(!_this.touch.startFlag) return;
         _this.touch.x = e.originalEvent.touches ? e.originalEvent.touches[0].pageX:e.pageX;
         _this.dragAudioProgressBar(_this.touch.offset.left,_this.touch.x-_this.touch.startX);
@@ -194,10 +195,7 @@
             '</div>' +
             
           '</div>' +
-        '<div>'  
-    for(audio of defaultoptions.audioList){
-      $this.append(renderAudioHtml(audioTemplateHtml,audio));
-    }
+        '<div>'
     if(defaultoptions.replace!==''){
       $this.find(defaultoptions.replace).each(function(){
         var _audioData = {
@@ -206,6 +204,9 @@
         };
         $(this).replaceWith(renderAudioHtml(audioTemplateHtml,_audioData));
       });
+    }
+    for(audio of defaultoptions.audioList){
+      $this.append(renderAudioHtml(audioTemplateHtml,audio));
     }
     $this.find('.weixinAudio').each(function(index,element){
       audioPlugs['weixinAudio'+index] = new Plugin({
